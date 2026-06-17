@@ -17,7 +17,7 @@
     "tracker",
     "replay"
   ],
-  "author": "",
+  "author": "Shufelt Designs LLC",
   "license": "MIT",
   "dependencies": {
     "chokidar": "^3.6.0"
