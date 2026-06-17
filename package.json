@@ -1,0 +1,48 @@
+{
+  "name": "hearthstone-bg-tracker",
+  "version": "1.0.0",
+  "description": "A tracker and replay system for Hearthstone Battlegrounds mode",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "start:mock": "electron . --mock",
+    "start:live": "electron .",
+    "test:parser": "node tests/runMockParser.js",
+    "test:live": "node tests/test_live_watcher.js",
+    "build": "npx electron-builder --win"
+  },
+  "keywords": [
+    "hearthstone",
+    "battlegrounds",
+    "tracker",
+    "replay"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chokidar": "^3.6.0"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0"
+  },
+  "build": {
+    "appId": "com.shufunk.hearthstone-bg-tracker",
+    "productName": "Hearthstone BG Tracker",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "files": [
+      "package.json",
+      "main.js",
+      "src/**/*",
+      "tests/mock-logs/**/*"
+    ],
+    "asar": true
+  }
+}

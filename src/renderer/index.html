@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hearthstone Battlegrounds Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Top Nav / Player Status Bar -->
+    <header class="app-header">
+      <div class="player-profile">
+        <div class="hero-avatar" id="hero-avatar-container">
+          <span class="avatar-letter" id="hero-letter">?</span>
+        </div>
+        <div class="player-info">
+          <h2 class="hero-name" id="hero-name">Searching for match...</h2>
+          <div class="player-stats">
+            <span class="stat-badge hp" id="hero-hp-badge">HP: --</span>
+            <span class="stat-badge armor" id="hero-armor-badge">Armor: --</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="game-phase-container">
+        <div class="turn-indicator">
+          <span class="turn-label">PHASE</span>
+          <span class="turn-number" id="turn-number">--</span>
+        </div>
+        <div class="phase-status">
+          <span class="status-dot" id="status-dot"></span>
+          <span class="status-text" id="status-text">WAITING</span>
+        </div>
+      </div>
+
+      <div class="session-info">
+        <button class="control-btn" id="play-pause-btn" title="Play or Pause replay" tabindex="-1" style="display: none;">▶️ Play Replay</button>
+        <button class="control-btn" id="rewind-btn" title="Rewind and replay the log stream" tabindex="-1">🔄 Rewind & Replay</button>
+        <span class="player-tag" id="player-tag">Not Connected</span>
+      </div>
+    </header>
+
+    <!-- Main Grid Content -->
+    <main class="main-content">
+      
+      <!-- Left Sidebar: Recruitment Log -->
+      <section class="sidebar left-sidebar">
+        <div class="panel-header">
+          <h3>Recruitment Log</h3>
+          <span class="subtitle">Turn actions</span>
+        </div>
+        <div class="panel-body" id="recruitment-log">
+          <div class="empty-log-state" id="empty-log-msg">
+            No actions recorded this turn.
+          </div>
+        </div>
+      </section>
+
+      <!-- Center Board: Minions Grid -->
+      <section class="board-area">
+        <div class="panel-header board-header">
+          <h3>Current Board State</h3>
+          <span class="subtitle" id="board-subtitle">Recruit Phase Minions</span>
+        </div>
+        
+        <!-- Log Limit Warning Banner -->
+        <div class="warning-banner hidden" id="log-warning-banner">
+          <span class="warning-icon">⚠️</span>
+          <span class="warning-text">Hearthstone log limit (10MB) is near. Restart Hearthstone to prevent tracking freezes.</span>
+        </div>
+        
+        <div class="board-container" id="board-container">
+          <div class="empty-board-state" id="empty-board-msg">
+            <div class="empty-icon">🛡️</div>
+            <h4>No minions on board</h4>
+            <p>Buy minions from Bob's tavern and play them to build your army.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Sidebar: History & Replay -->
+      <section class="sidebar right-sidebar">
+        <div class="panel-header tabbed-header">
+          <div class="sidebar-tabs">
+            <button class="tab-btn active" id="tab-current" tabindex="-1">Current Match</button>
+            <button class="tab-btn" id="tab-library" tabindex="-1">Match Library</button>
+          </div>
+        </div>
+        <div class="panel-body scrollable" id="match-history-list">
+          <div class="empty-history-state" id="empty-history-msg">
+            No turn data recorded yet.
+          </div>
+        </div>
+        <div class="panel-body scrollable hidden" id="match-library-list">
+          <div class="empty-library-state" id="empty-library-msg">
+            No saved matches in library.
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer / Status Bar -->
+    <footer class="app-footer">
+      <span class="connection-status" id="connection-status">🔴 Offline</span>
+      <span class="app-version">v1.0.0 (Phase 2 - Live Dashboard)</span>
+    </footer>
+
+  </div>
+
+  <!-- Replay Modal (shown when viewing a past turn's board) -->
+  <div class="modal-overlay" id="replay-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h3 id="modal-turn-title">Turn X Replay</h3>
+          <p id="modal-turn-subtitle">Board state recap</p>
+        </div>
+        <button class="close-btn" id="close-modal-btn" tabindex="-1">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="replay-boards-wrapper">
+          <div class="replay-section player-section">
+            <h4 class="replay-section-title">Your Board</h4>
+            <div class="modal-board-container" id="modal-board-container">
+              <!-- Minions will be injected here -->
+            </div>
+          </div>
+          <div class="replay-section opponent-section" id="modal-opponent-section">
+            <h4 class="replay-section-title" id="modal-opponent-title">Opponent's Board</h4>
+            <div class="modal-board-container" id="modal-opponent-board-container">
+              <!-- Opponent Minions will be injected here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
