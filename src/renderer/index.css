@@ -313,6 +313,7 @@ body {
   justify-content: center;
   gap: 12px;
   overflow-x: auto;
+  overflow-y: hidden;
   padding: 20px 10px;
 }
 
@@ -708,6 +709,7 @@ body {
   display: flex;
   gap: 12px;
   overflow-x: auto;
+  overflow-y: hidden;
   padding: 10px;
   justify-content: center;
   width: 100%;
@@ -918,6 +920,7 @@ body {
   display: flex;
   gap: 12px;
   overflow-x: auto;
+  overflow-y: hidden;
   padding: 10px;
   justify-content: center;
   width: 100%;
