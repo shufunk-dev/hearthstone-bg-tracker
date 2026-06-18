@@ -707,13 +707,14 @@ body {
 
 .modal-board-container {
   display: flex;
+  align-items: center;
   gap: 12px;
   overflow-x: auto;
   overflow-y: hidden;
   padding: 10px;
   justify-content: center;
   width: 100%;
-  min-height: 220px;
+  min-height: 140px;
 }
 
 /* Footer status bar */
@@ -918,13 +919,14 @@ body {
 
 .combat-board-row {
   display: flex;
+  align-items: center;
   gap: 12px;
   overflow-x: auto;
   overflow-y: hidden;
   padding: 10px;
   justify-content: center;
   width: 100%;
-  min-height: 220px;
+  min-height: 140px;
   border-radius: 8px;
   background: rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.02);
