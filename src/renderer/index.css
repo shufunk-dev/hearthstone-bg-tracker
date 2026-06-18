@@ -318,8 +318,8 @@ body {
 
 /* Minion Card Style (High Fidelity) */
 .minion-card {
-  width: 140px;
-  height: 200px;
+  width: 120px;
+  height: 170px;
   border-radius: 8px;
   background: linear-gradient(180deg, #1d1e27 0%, #111218 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1028,7 +1028,7 @@ body {
   0% {
     transform: scale(1);
     opacity: 1;
-    width: 140px;
+    width: 120px;
     margin-left: 0;
     margin-right: 0;
     padding: 12px;
