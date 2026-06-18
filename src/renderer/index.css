@@ -319,8 +319,8 @@ body {
 
 /* Minion Card Style (High Fidelity) */
 .minion-card {
-  width: 120px;
-  height: 170px;
+  width: 100px;
+  height: 140px;
   border-radius: 8px;
   background: linear-gradient(180deg, #1d1e27 0%, #111218 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -400,7 +400,7 @@ body {
 
 .minion-name {
   font-family: var(--font-display);
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 600;
   line-height: 1.25;
   color: #ffffff;
@@ -450,10 +450,10 @@ body {
 
 .stat-val {
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 800;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -476,8 +476,8 @@ body {
 
 .stat-val.hp.negative-hp {
   width: auto;
-  min-width: 28px;
-  border-radius: 14px;
+  min-width: 24px;
+  border-radius: 12px;
   padding: 0 6px;
 }
 
@@ -1031,7 +1031,7 @@ body {
   0% {
     transform: scale(1);
     opacity: 1;
-    width: 120px;
+    width: 100px;
     margin-left: 0;
     margin-right: 0;
     padding: 12px;
